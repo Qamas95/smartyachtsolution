@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">SmartYachtSolutions</string>
     <string name="on_off_bluetooth">ON/OFF Bluetooth</string>
+    <string name="enable_discoverable">Enable Discoverable</string>
 </resources>
