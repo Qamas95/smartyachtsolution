@@ -3,12 +3,12 @@
     package="com.example.smartyachtsolutions">
 
 
-    <uses-feature android:name="android.hardware.bluetooth"/>
-    <uses-feature android:name="android.permission.BLUETOOTH"/>
-    <uses-feature android:name="android.permission.BLUETOOTH_ADMIN"/>
-    <uses-feature android:name="ACCESS_COARSE_LOCATION"/>
-    <uses-feature android:name="ACCESS_FINE_LOCATION"/>
-    <uses-feature android:name="BLUETOOTH_PRIVILEGED"/>
+    <uses-feature android:name="android.hardware.bluetooth" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
 
 
 
