@@ -10,13 +10,14 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+
 public class DeviceListAdapter extends ArrayAdapter<BluetoothDevice> {
 
     private LayoutInflater mLayoutInflater;
     private ArrayList<BluetoothDevice> mDevices;
-    private int mViewResourceId;
+    private int  mViewResourceId;
 
-    public DeviceListAdapter(Context context, int tvResourceId, ArrayList<BluetoothDevice> devices) {
+    public DeviceListAdapter(Context context, int tvResourceId, ArrayList<BluetoothDevice> devices){
         super(context, tvResourceId,devices);
         this.mDevices = devices;
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -35,10 +36,11 @@ public class DeviceListAdapter extends ArrayAdapter<BluetoothDevice> {
             if (deviceName != null) {
                 deviceName.setText(device.getName());
             }
-            if(deviceAdress != null) {
+            if (deviceAdress != null) {
                 deviceAdress.setText(device.getAddress());
             }
         }
+
         return convertView;
     }
 

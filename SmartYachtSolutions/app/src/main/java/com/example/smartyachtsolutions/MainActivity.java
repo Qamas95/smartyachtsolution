@@ -18,13 +18,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     BluetoothAdapter mBluetoothAdapter;
     Button btnEnableDisable_Discoverable;
     public ArrayList<BluetoothDevice> mBTDevices = new ArrayList<>();
-    public DeviceListAdapter mDeviceListAdapter;
+
+    public com.example.user.bluetooth_discoverdevices.DeviceListAdapter mDeviceListAdapter;
     ListView lvNewDevices;
 
 
@@ -109,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 BluetoothDevice device = intent.getParcelableExtra (BluetoothDevice.EXTRA_DEVICE);
                 mBTDevices.add(device);
                 Log.d(TAG, "onReceive: " + device.getName() + ": " + device.getAddress());
-                mDeviceListAdapter = new DeviceListAdapter(context, R.layout.device_adapter_view, mBTDevices);
+                mDeviceListAdapter = new com.example.user.bluetooth_discoverdevices.DeviceListAdapter(context, R.layout.device_adapter_view, mBTDevices);
                 lvNewDevices.setAdapter(mDeviceListAdapter);
             }
         }
