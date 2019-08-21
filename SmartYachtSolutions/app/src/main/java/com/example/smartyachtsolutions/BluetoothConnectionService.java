@@ -15,11 +15,10 @@ import java.nio.charset.Charset;
 import java.util.UUID;
 
 
-
 public class BluetoothConnectionService {
     private static final String TAG = "BluetoothConnectionServ";
 
-    private static final String appName = "SmartYachtSolution";
+    private static final String appName = "SmartYachtSolutions";
 
     private static final UUID MY_UUID_INSECURE =
             UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
@@ -101,7 +100,6 @@ public class BluetoothConnectionService {
 
     }
 
-
     private class ConnectThread extends Thread {
         private BluetoothSocket mmSocket;
 
@@ -164,7 +162,6 @@ public class BluetoothConnectionService {
 
 
 
-
     public synchronized void start() {
         Log.d(TAG, "start");
 
@@ -191,7 +188,6 @@ public class BluetoothConnectionService {
         mConnectThread = new ConnectThread(device, uuid);
         mConnectThread.start();
     }
-
 
 
     private class ConnectedThread extends Thread {
@@ -283,3 +279,4 @@ public class BluetoothConnectionService {
     }
 
 }
+
