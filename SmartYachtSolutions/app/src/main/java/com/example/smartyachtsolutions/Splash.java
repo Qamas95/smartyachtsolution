@@ -26,7 +26,6 @@ public class Splash extends AppCompatActivity {
         Animation my_animation = AnimationUtils.loadAnimation(this, R.anim.mytransition);
         imagesplash.startAnimation(my_animation);
 
-
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         if (bluetoothAdapter == null) {
@@ -38,7 +37,17 @@ public class Splash extends AppCompatActivity {
         Intent discoverintent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
         discoverintent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 3000);
         startActivity(discoverintent);*/
+/*
+        if(bluetoothAdapter.isEnabled()) {
+           final Intent intent = new Intent(this, Connect.class);
+            this.startActivity(intent);
+        }
 
+        if(!bluetoothAdapter.isEnabled()) {
+           final Intent intent = new Intent(this, RunBluetooth.class);
+            this.startActivity(intent);
+        }
+*/
          if (!bluetoothAdapter.isEnabled()) {
             final Intent i = new Intent(this, RunBluetooth.class);
             Thread timer = new Thread() {
@@ -55,7 +64,7 @@ public class Splash extends AppCompatActivity {
             };
             timer.start();
        } else {
-             final Intent z = new Intent(this, MainActivity.class);
+             final Intent z = new Intent(this, Connect.class);
              Thread timer = new Thread() {
                  public void run() {
                      try {
@@ -70,6 +79,7 @@ public class Splash extends AppCompatActivity {
              };
              timer.start();
          }
+
     }
 }
 

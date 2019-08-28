@@ -6,8 +6,9 @@
     <color name="splash">#bf360c</color>
     <color name="black">#000000</color>
     <color name="blue">#0000ff</color>
-    <color name="bgrun_bluetooth">#504141</color>
+    <color name="bgrun_bluetooth">#221f1f</color>
     <color name="btn_runbt">#665858</color>
     <color name="text_runbtn">#c8c3c3</color>
+    <color name="BtDevices">#f93e15</color>
 
 </resources>

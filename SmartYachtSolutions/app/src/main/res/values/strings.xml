@@ -2,5 +2,6 @@
     <string name="app_name">SmartYachtSolutions</string>
     <string name="on_off_bluetooth">ON/OFF Bluetooth</string>
     <string name="enable_discoverable">Enable Discoverable</string>
-    <string name="devices">devices</string>
+    <string name="title_activity_connect">Connect</string>
+    <string name="devices">Bluetooth Devices</string>
 </resources>
