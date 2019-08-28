@@ -19,15 +19,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"> </activity>
-        <activity android:name=".Splash">
-
+        <activity android:name=".RunBluetooth"
+            android:theme="@style/AppTheme2"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Splash"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
