@@ -3,6 +3,8 @@ package com.example.smartyachtsolutions;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -16,8 +18,10 @@ import java.util.Set;
 public class Connect extends AppCompatActivity {
 
     private ListView lstvw;
-    private ArrayAdapter aAdapter;
+    private ArrayAdapter<BluetoothDevice> aAdapter;
     private BluetoothAdapter bAdapter = BluetoothAdapter.getDefaultAdapter();
+
+
 
 
     @Override
@@ -33,7 +37,7 @@ public class Connect extends AppCompatActivity {
             if (pairedDevices.size() > 0) {
                 for (BluetoothDevice device : pairedDevices) {
                     String devicename = device.getName();
-                    //String macAddress = device.getAddress();
+                    String macAddress = device.getAddress();
                     list.add("Name: " + devicename);
                 }
                 lstvw = (ListView) findViewById(R.id.deviceList);
@@ -44,10 +48,21 @@ public class Connect extends AppCompatActivity {
             }
         }
 
+        lstvw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //need to add here function that will run rfcomm transfer and try to connect to raspberry
+
+                Toast.makeText(getApplicationContext(), "You clicked something", Toast.LENGTH_SHORT).show();
+            }
+        });
+
             onResume();
 
 
     }
+
+
 
     public void onResume() {
         super.onResume();
@@ -58,6 +73,7 @@ public class Connect extends AppCompatActivity {
 
             }
         }
+
 
 
     }
