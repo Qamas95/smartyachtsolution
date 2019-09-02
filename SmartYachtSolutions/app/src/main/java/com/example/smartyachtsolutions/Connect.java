@@ -1,8 +1,10 @@
 package com.example.smartyachtsolutions;
 
+import android.app.FragmentTransaction;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +35,7 @@ public class Connect extends AppCompatActivity {
 
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +60,7 @@ public class Connect extends AppCompatActivity {
             }
         }
 
-        lstvw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* lstvw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //need to add here function that will run rfcomm transfer and try to connect to raspberry
@@ -72,8 +75,24 @@ public class Connect extends AppCompatActivity {
                 // Toast.makeText(getApplicationContext(), "You clicked something", Toast.LENGTH_SHORT).show();
             }
         });
+*/
+        lstvw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //need to add here function that will run rfcomm transfer and try to connect to raspberry
+                Intent intent=new Intent(view.getContext(),AfterClick.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                view.getContext().startActivity(intent);//Changed Here
+                overridePendingTransition(0,0);
+
+            }
+        });
+
 
             onResume();
+
+
+
 
 
     }
@@ -91,7 +110,7 @@ public class Connect extends AppCompatActivity {
         }
 
 
-
+/*
     public void connectdv() throws IOException, InterruptedException {
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
@@ -106,6 +125,8 @@ public class Connect extends AppCompatActivity {
         }
         try {
             socket.connect();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -123,7 +144,7 @@ public class Connect extends AppCompatActivity {
         }
 
         // send
-        ostream.write("whatever\n".getBytes());
+       // ostream.write("0".getBytes());
 
 
         // receive
@@ -139,10 +160,17 @@ public class Connect extends AppCompatActivity {
         }
         Log.w(this.getClass().getSimpleName(), "Received: " + s);
 
-    }
+
+*/
 
 
     }
+
+
+
+
+
+
 
 
 
