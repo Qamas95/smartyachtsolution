@@ -48,7 +48,7 @@ public class Server extends Thread {
     public void run() {
         btAdapter = BluetoothAdapter.getDefaultAdapter();
 
-
+/*
         try {
             socket = device.createRfcommSocketToServiceRecord(uuid);
         } catch (IOException e) {
@@ -74,7 +74,7 @@ public class Server extends Thread {
             e.printStackTrace();
         }
 
-/*
+
         Thread.sleep(1000);
         int avail = istream.available();
         Log.w(this.getClass().getSimpleName(), "Received " + avail + " bytes");

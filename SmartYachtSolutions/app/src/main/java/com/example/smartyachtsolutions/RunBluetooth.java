@@ -66,6 +66,8 @@ public class RunBluetooth extends AppCompatActivity {
         if (!bluetoothAdapter.isEnabled())
             Toast.makeText(this, "Turn ON Bluetooth", Toast.LENGTH_LONG).show();
         else {
+
+
             Intent i = new Intent(this, Connect.class);
             startActivity(i);
         }
