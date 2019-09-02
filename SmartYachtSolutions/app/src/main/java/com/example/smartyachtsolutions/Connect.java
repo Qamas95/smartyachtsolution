@@ -28,12 +28,10 @@ import java.util.UUID;
 
 public class Connect extends AppCompatActivity {
 
+
     private ListView lstvw;
     private ArrayAdapter<BluetoothDevice> aAdapter;
     private BluetoothAdapter bAdapter = BluetoothAdapter.getDefaultAdapter();
-
-
-
 
 
     @Override
@@ -76,26 +74,25 @@ public class Connect extends AppCompatActivity {
             }
         });
 */
+
+
         lstvw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //need to add here function that will run rfcomm transfer and try to connect to raspberry
-                Intent intent=new Intent(view.getContext(),AfterClick.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                view.getContext().startActivity(intent);//Changed Here
-                overridePendingTransition(0,0);
+                Intent z=new Intent(view.getContext(),AfterClick.class);
+                startActivity(z);
+                }
 
-            }
+
         });
 
 
-            onResume();
-
-
-
+        onResume();
 
 
     }
+
 
 
 
@@ -104,13 +101,13 @@ public class Connect extends AppCompatActivity {
         if (!bAdapter.isEnabled())
             Toast.makeText(this, "Turn ON Bluetooth", Toast.LENGTH_LONG).show();
         else {
-                Toast.makeText(this, "Connect with Smart Yacht Solution device", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Connect with Smart Yacht Solution device", Toast.LENGTH_LONG).show();
 
-            }
         }
+    }
 
 
-/*
+
     public void connectdv() throws IOException, InterruptedException {
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
@@ -144,7 +141,7 @@ public class Connect extends AppCompatActivity {
         }
 
         // send
-       // ostream.write("0".getBytes());
+        // ostream.write("0".getBytes());
 
 
         // receive
@@ -161,10 +158,9 @@ public class Connect extends AppCompatActivity {
         Log.w(this.getClass().getSimpleName(), "Received: " + s);
 
 
-*/
-
-
     }
+
+}
 
 
 

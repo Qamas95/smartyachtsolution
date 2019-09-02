@@ -7,59 +7,42 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.Timer;
-import java.util.TimerTask;
+
 import java.util.UUID;
 
 public class AfterClick extends AppCompatActivity {
+
+    private ListView lstvw;
+    private ArrayAdapter<BluetoothDevice> aAdapter;
+    private BluetoothAdapter bAdapter = BluetoothAdapter.getDefaultAdapter();
+
+    public static final String BT_UUID = "00001101-0000-1000-8000-00805F9B34FB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_click);
-
-
-        try {
-            connectdv();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
+          Server serv = new Server(this);
+            new Thread(serv).start();
 
 
 
     }
 
-    public class Reminder {
 
-        Timer timer;
-
-        public Reminder(int seconds) {
-            timer = new Timer();
-            timer.schedule(new RemindTask(), seconds*1000);
-        }
-
-        class RemindTask extends TimerTask {
-            public void run() {
-                System.out.format("Time's up!%n");
-                timer.cancel(); //Terminate the timer thread
-            }
-        }
-    }
-
-
-
+/*
     public void connectdv() throws IOException, InterruptedException {
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
@@ -67,7 +50,7 @@ public class AfterClick extends AppCompatActivity {
         Iterator<BluetoothDevice> iterator = pairedDevices.iterator();
         BluetoothDevice device = iterator.next();
         BluetoothSocket socket = null;
-        new Reminder(2);
+
         try {
             socket = device.createRfcommSocketToServiceRecord(uuid);
         } catch (IOException e) {
@@ -116,7 +99,7 @@ public class AfterClick extends AppCompatActivity {
 
     }
 
-
+*/
 
 
 
