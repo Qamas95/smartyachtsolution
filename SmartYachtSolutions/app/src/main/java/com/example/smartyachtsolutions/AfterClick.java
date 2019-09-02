@@ -31,7 +31,7 @@ public class AfterClick extends AppCompatActivity {
     private ListView lstvw;
     private ArrayAdapter<BluetoothDevice> aAdapter;
     private BluetoothAdapter bAdapter = BluetoothAdapter.getDefaultAdapter();
-    Button turnLightOn, turnLightOff;
+    Button turnLightOn, turnLightOff, turnHeaterOn, turnHeaterOff,AnchorOn,AnchorOff;
     public static final String BT_UUID = "00001101-0000-1000-8000-00805F9B34FB";
     public OutputStream mmOutStream;
     @Override
@@ -44,6 +44,11 @@ public class AfterClick extends AppCompatActivity {
 
          turnLightOn = findViewById(R.id.light_on);
          turnLightOff = findViewById(R.id.light_off);
+         turnHeaterOn = findViewById(R.id.heater_on);
+         turnHeaterOff = findViewById(R.id.heater_off);
+         AnchorOn = findViewById(R.id.AnchorOn);
+         AnchorOff = findViewById(R.id.AnchorOff);
+
 
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
@@ -104,6 +109,60 @@ public class AfterClick extends AppCompatActivity {
 
             }
         });
+
+
+        turnHeaterOn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    finalOstream.write("10".getBytes());
+                } catch (IOException e) {
+
+                }
+
+            }
+        });
+
+        turnHeaterOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    finalOstream.write("01".getBytes());
+                } catch (IOException e) {
+
+                }
+
+            }
+        });
+
+
+        AnchorOn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    finalOstream.write("100".getBytes());
+                } catch (IOException e) {
+
+                }
+
+            }
+        });
+
+        AnchorOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    finalOstream.write("011".getBytes());
+                } catch (IOException e) {
+
+                }
+
+            }
+        });
+
+
+
+
 
 
     }

@@ -27,7 +27,29 @@
             android:text="Light Off"
             android:id="@+id/light_off"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Heater On"
+            android:id="@+id/heater_on"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Heater Off"
+            android:id="@+id/heater_off"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anchor Up"
+            android:id="@+id/AnchorOn"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anchor Down"
+            android:id="@+id/AnchorOff"/>
 
 
     </LinearLayout>
