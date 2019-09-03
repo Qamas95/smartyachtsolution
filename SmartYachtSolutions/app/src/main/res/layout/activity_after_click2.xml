@@ -4,39 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/btn_runbt"
-    tools:context=".Connect">
+    tools:context=".AfterClick2">
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
-        <TextView
+
+
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            android:gravity="center"
-            android:text="@string/devices"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-
-        <ListView
-            android:id="@+id/deviceList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </ListView>
+            android:text="Test"
+            android:id="@+id/light_on"/>
 
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/fragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

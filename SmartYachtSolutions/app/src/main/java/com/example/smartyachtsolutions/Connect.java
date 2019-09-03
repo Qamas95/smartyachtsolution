@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -80,10 +81,10 @@ public class Connect extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //need to add here function that will run rfcomm transfer and try to connect to raspberry
-                Intent z=new Intent(view.getContext(),AfterClick.class);
-                startActivity(z);
-                }
+               Intent z=new Intent(view.getContext(),AfterClick.class);
+               startActivity(z);
 
+            }
 
         });
 
