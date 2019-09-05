@@ -21,7 +21,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AfterClick2"></activity>
-        <activity android:name=".TerminalFragment" />
+        <activity android:name=".TerminalFragment"
+            android:theme="@style/AppTheme"
+
+            />
         <activity
             android:name=".AfterClick"
             android:theme="@style/AppTheme" />

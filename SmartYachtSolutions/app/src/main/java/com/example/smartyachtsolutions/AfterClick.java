@@ -34,12 +34,23 @@ public class AfterClick extends AppCompatActivity {
     Button turnLightOn, turnLightOff, turnHeaterOn, turnHeaterOff,AnchorOn,AnchorOff;
     public static final String BT_UUID = "00001101-0000-1000-8000-00805F9B34FB";
     public OutputStream mmOutStream;
+    public BluetoothDevice mmDevice;
     @Override
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_click);
-          Server serv = new Server(this);
-          new Thread(serv).start();
+            SYSServer serw = new SYSServer();
+
+
+
+
+
+
+        //  Server serv = new Server(this);
+         // new Thread(serv).start();
 
 
          turnLightOn = findViewById(R.id.light_on);
@@ -49,7 +60,7 @@ public class AfterClick extends AppCompatActivity {
          AnchorOn = findViewById(R.id.AnchorOn);
          AnchorOff = findViewById(R.id.AnchorOff);
 
-
+/*
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
         Set<BluetoothDevice> pairedDevices = adapter.getBondedDevices();
@@ -82,8 +93,9 @@ public class AfterClick extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
-
+*/
+        InputStream istream = null;
+        OutputStream ostream = null;
 
         OutputStream finalOstream = ostream;
         turnLightOn.setOnClickListener(new View.OnClickListener() {
@@ -166,6 +178,7 @@ public class AfterClick extends AppCompatActivity {
 
 
     }
+
 
 
 
