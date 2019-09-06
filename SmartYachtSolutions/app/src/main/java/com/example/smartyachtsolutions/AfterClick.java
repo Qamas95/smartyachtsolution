@@ -42,7 +42,10 @@ public class AfterClick extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_click);
-            SYSServer serw = new SYSServer();
+        Serwer serw = new Serwer();
+        serw.started();
+
+           // SYSServer serw = new SYSServer();
 
 
 
@@ -59,6 +62,8 @@ public class AfterClick extends AppCompatActivity {
          turnHeaterOff = findViewById(R.id.heater_off);
          AnchorOn = findViewById(R.id.AnchorOn);
          AnchorOff = findViewById(R.id.AnchorOff);
+
+
 
 /*
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
@@ -92,20 +97,16 @@ public class AfterClick extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 */
-        InputStream istream = null;
-        OutputStream ostream = null;
 
-        OutputStream finalOstream = ostream;
+        InputStream istream = null;
+
+
         turnLightOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    finalOstream.write("1".getBytes());
-                } catch (IOException e) {
-
-                }
+                serw.write("0".getBytes());
+                //  mmOutStream.write("1".getBytes());
 
             }
         });
@@ -114,7 +115,7 @@ public class AfterClick extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    finalOstream.write("0".getBytes());
+                    mmOutStream.write("1".getBytes());
                 } catch (IOException e) {
 
                 }
@@ -127,7 +128,7 @@ public class AfterClick extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    finalOstream.write("10".getBytes());
+                    mmOutStream.write("10".getBytes());
                 } catch (IOException e) {
 
                 }
@@ -139,7 +140,7 @@ public class AfterClick extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    finalOstream.write("01".getBytes());
+                    mmOutStream.write("01".getBytes());
                 } catch (IOException e) {
 
                 }
@@ -152,7 +153,7 @@ public class AfterClick extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    finalOstream.write("100".getBytes());
+                    mmOutStream.write("100".getBytes());
                 } catch (IOException e) {
 
                 }
@@ -164,7 +165,7 @@ public class AfterClick extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    finalOstream.write("011".getBytes());
+                    mmOutStream.write("011".getBytes());
                 } catch (IOException e) {
 
                 }
