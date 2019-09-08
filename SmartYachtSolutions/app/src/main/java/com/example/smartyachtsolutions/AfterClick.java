@@ -35,33 +35,31 @@ public class AfterClick extends AppCompatActivity {
     public static final String BT_UUID = "00001101-0000-1000-8000-00805F9B34FB";
     public OutputStream mmOutStream;
     public BluetoothDevice mmDevice;
+    BluetoothSocket socket;
+
     @Override
-
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_click);
         Serwer serw = new Serwer();
-        serw.started();
-
-           // SYSServer serw = new SYSServer();
+            serw.started();
 
 
 
 
+            // SYSServer serw = new SYSServer();
 
 
-        //  Server serv = new Server(this);
-         // new Thread(serv).start();
+            //  Server serv = new Server(this);
+            // new Thread(serv).start();
 
 
-         turnLightOn = findViewById(R.id.light_on);
-         turnLightOff = findViewById(R.id.light_off);
-         turnHeaterOn = findViewById(R.id.heater_on);
-         turnHeaterOff = findViewById(R.id.heater_off);
-         AnchorOn = findViewById(R.id.AnchorOn);
-         AnchorOff = findViewById(R.id.AnchorOff);
+            turnLightOn = findViewById(R.id.light_on);
+            turnLightOff = findViewById(R.id.light_off);
+            turnHeaterOn = findViewById(R.id.heater_on);
+            turnHeaterOff = findViewById(R.id.heater_off);
+            AnchorOn = findViewById(R.id.AnchorOn);
+            AnchorOff = findViewById(R.id.AnchorOff);
 
 
 
@@ -99,86 +97,57 @@ public class AfterClick extends AppCompatActivity {
         }
 */
 
-        InputStream istream = null;
+            InputStream istream = null;
 
 
-        turnLightOn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                serw.write("0".getBytes());
-                //  mmOutStream.write("1".getBytes());
-
-            }
-        });
-
-        turnLightOff.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    mmOutStream.write("1".getBytes());
-                } catch (IOException e) {
+            turnLightOn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    serw.write("1".getBytes());
+                    //  mmOutStream.write("1".getBytes());
 
                 }
+            });
 
-            }
-        });
-
-
-        turnHeaterOn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    mmOutStream.write("10".getBytes());
-                } catch (IOException e) {
-
+            turnLightOff.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    serw.write("0".getBytes());
                 }
+            });
 
-            }
-        });
 
-        turnHeaterOff.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    mmOutStream.write("01".getBytes());
-                } catch (IOException e) {
-
+            turnHeaterOn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    serw.write("10".getBytes());
                 }
+            });
 
-            }
-        });
-
-
-        AnchorOn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    mmOutStream.write("100".getBytes());
-                } catch (IOException e) {
-
+            turnHeaterOff.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    serw.write("01".getBytes());
                 }
+            });
 
-            }
-        });
 
-        AnchorOff.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    mmOutStream.write("011".getBytes());
-                } catch (IOException e) {
-
+            AnchorOn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    serw.write("100".getBytes());
                 }
+            });
 
-            }
-        });
+            AnchorOff.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    serw.write("011".getBytes());
+                }
+            });
 
 
-
-
-
-
-    }
+        }
 
 
 
