@@ -3,6 +3,7 @@ package com.example.smartyachtsolutions;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
@@ -25,9 +26,7 @@ public class Serwer extends Thread {
     BluetoothSocket socket = null;
     public OutputStream mmOutStream;
     public String nconnected;
-
-
-
+    int ifconnect;
 
 
 
@@ -65,9 +64,17 @@ public class Serwer extends Thread {
             e.printStackTrace();
         }
         try {
+            ifconnect = 0;
             socket.connect();
         } catch (IOException e) {
-            e.printStackTrace();
+            try {
+
+                socket.close();
+            } catch (IOException e2) {
+                e.printStackTrace();
+            }
+            connectionFailed();
+            return;
         }
         InputStream istream = null;
         try {

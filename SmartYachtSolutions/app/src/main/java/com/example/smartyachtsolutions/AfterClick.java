@@ -1,7 +1,7 @@
 package com.example.smartyachtsolutions;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Application;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -41,6 +41,8 @@ public class AfterClick extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_click);
+        //String data = DataHolder.getInstance().getData();
+
         Serwer serw = new Serwer();
             serw.started();
 
