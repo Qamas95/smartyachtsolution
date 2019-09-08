@@ -41,11 +41,13 @@ public class AfterClick extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_click);
-        //String data = DataHolder.getInstance().getData();
 
         Serwer serw = new Serwer();
             serw.started();
 
+
+            String data = Serwer.getData();
+        Toast.makeText(this, data, Toast.LENGTH_LONG).show();
 
 
 

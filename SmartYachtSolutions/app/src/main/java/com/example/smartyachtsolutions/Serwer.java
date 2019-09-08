@@ -3,9 +3,7 @@ package com.example.smartyachtsolutions;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.util.Log;
 
 import java.io.IOException;
@@ -14,6 +12,8 @@ import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
+
+
 
 public class Serwer extends Thread {
 
@@ -26,7 +26,11 @@ public class Serwer extends Thread {
     BluetoothSocket socket = null;
     public OutputStream mmOutStream;
     public String nconnected;
-    int ifconnect;
+
+    private static String data;
+    public static String getData() {return data;}
+    public static void setData(String data) {Serwer.data = data;}
+
 
 
 
@@ -36,7 +40,7 @@ public class Serwer extends Thread {
         bundle.putString("nconnected", nconnected);
         // Update UI title
         // Start the service over to restart listening mode
-        Serwer.this.start();
+            Serwer.this.start();
     }
 
 
@@ -64,17 +68,17 @@ public class Serwer extends Thread {
             e.printStackTrace();
         }
         try {
-            ifconnect = 0;
+
             socket.connect();
         } catch (IOException e) {
             try {
-
                 socket.close();
             } catch (IOException e2) {
                 e.printStackTrace();
             }
-            connectionFailed();
-            return;
+           // connectionFailed();
+            setData("notConnect");
+          //  return;
         }
         InputStream istream = null;
         try {
@@ -90,6 +94,7 @@ public class Serwer extends Thread {
         }
 
     }
+
 
 
     void write(byte[] data) {
