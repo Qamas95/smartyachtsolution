@@ -62,20 +62,29 @@ public class Serwer extends Thread {
     public void started() {
         adapter.cancelDiscovery();
         try {
+            Log.i(TAG, "Creating rfcomm socket");
             socket = device.createRfcommSocketToServiceRecord(uuid);
+            Log.i(TAG, "Rfcomm socket created");
         } catch (
                 IOException e) {
             e.printStackTrace();
+            Log.i(TAG, "log when it's not created");
         }
         try {
-
+            Log.i(TAG, "trying socket connect");
             socket.connect();
+            Log.i(TAG, "socket connected");
         } catch (IOException e) {
+            Log.i(TAG, "if socket wasn't connected");
             try {
+                Log.i(TAG, "try close socket");
                 socket.close();
+                Log.i(TAG, "closed socket");
             } catch (IOException e2) {
+                Log.i(TAG, "log when socket not closed but tried to");
                 e.printStackTrace();
             }
+            Log.i(TAG, "send data about not connected socket");
            // connectionFailed();
             setData("notConnect");
           //  return;
