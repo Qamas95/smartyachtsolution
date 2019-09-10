@@ -27,7 +27,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public class AfterClick extends AppCompatActivity {
-
+    private static final String TAG = "Smart Solution";
     private ListView lstvw;
     private ArrayAdapter<BluetoothDevice> aAdapter;
     private BluetoothAdapter bAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -44,10 +44,15 @@ public class AfterClick extends AppCompatActivity {
 
         Serwer serw = new Serwer();
             serw.started();
+            serw.getVar1();
 
+            int z = 1;
 
-            String data = Serwer.getData();
-        Toast.makeText(this, data, Toast.LENGTH_LONG).show();
+            if(z == serw.getVar1()) {
+                Log.i(TAG, "yea xd");
+            }
+            //String data = Serwer.getData();
+     //   Toast.makeText(this, data, Toast.LENGTH_LONG).show();
 
 
 

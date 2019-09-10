@@ -25,15 +25,25 @@ public class Serwer extends Thread {
     BluetoothDevice device = iterator.next();
     BluetoothSocket socket = null;
     public OutputStream mmOutStream;
-    public String nconnected;
+    public boolean nconnected;
 
+    /*
     private static String data;
     public static String getData() {return data;}
     public static void setData(String data) {Serwer.data = data;}
+*/
+
+   public int var1;
 
 
+    public int getVar1() {
+        if (nconnected == true) {
+            var1 = 1;
+        }
+        return var1;
+    }
 
-
+/*
     private void connectionFailed() {
         // Send a failure message back to the Activity
         Bundle bundle = new Bundle();
@@ -42,8 +52,7 @@ public class Serwer extends Thread {
         // Start the service over to restart listening mode
             Serwer.this.start();
     }
-
-
+    */
 
 
 
@@ -73,6 +82,7 @@ public class Serwer extends Thread {
         try {
             Log.i(TAG, "trying socket connect");
             socket.connect();
+            nconnected = true;
             Log.i(TAG, "socket connected");
         } catch (IOException e) {
             Log.i(TAG, "if socket wasn't connected");
@@ -86,7 +96,7 @@ public class Serwer extends Thread {
             }
             Log.i(TAG, "send data about not connected socket");
            // connectionFailed();
-            setData("notConnect");
+            //setData("notConnect");
           //  return;
         }
         InputStream istream = null;
@@ -162,7 +172,7 @@ public class Serwer extends Thread {
                     Log.e(TAG, "unable to close() " + mSocketType +
                             " socket during connection failure", e2);
                 }
-                connectionFailed();
+                //connectionFailed();
                 return;
             }
 
