@@ -25,6 +25,7 @@ public class Serwer extends Thread {
     BluetoothDevice device = iterator.next();
     BluetoothSocket socket = null;
     public OutputStream mmOutStream;
+    public  InputStream mmInStream;
     public boolean nconnected;
 
     /*
@@ -114,7 +115,14 @@ public class Serwer extends Thread {
 
     }
 
+    void read(byte[] rdata){
+        try {
+            mmInStream = socket.getInputStream();
+            mmInStream.read(rdata);
+        } catch (IOException e){
 
+        }
+    }
 
     void write(byte[] data) {
         try {
@@ -181,6 +189,9 @@ public class Serwer extends Thread {
             }
 
         }
+
+
+
         public void cancel() {
             try {
                 mmSocket.close();

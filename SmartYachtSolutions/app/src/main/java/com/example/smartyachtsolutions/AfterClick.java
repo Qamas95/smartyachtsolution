@@ -49,7 +49,10 @@ public class AfterClick extends AppCompatActivity {
             int z = 1;
 
             if(z == serw.getVar1()) {
-                Log.i(TAG, "yea xd");
+                Log.i(TAG, "connected");
+            } else {
+                Intent intent=new Intent(this, Splash.class);
+                startActivity(intent);
             }
             //String data = Serwer.getData();
      //   Toast.makeText(this, data, Toast.LENGTH_LONG).show();
