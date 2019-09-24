@@ -43,6 +43,7 @@ public class Serwer extends Thread {
         }
         return var1;
     }
+    //Im back from holidays aye xd 
 
 /*
     private void connectionFailed() {
